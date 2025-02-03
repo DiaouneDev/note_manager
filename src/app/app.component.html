@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centre Informatique - Gestion des Notes</title>
+  <title>CI-NoteManager - Gestion des Notes</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -14,6 +14,7 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
     }
 
     /* Header */
@@ -21,7 +22,7 @@
       background: linear-gradient(135deg, #0d6efd, #0b5ed7, #0a58ca, #0952be);
       background-size: 200% 200%;
       animation: gradientAnimation 10s ease infinite;
-      padding: 80px 0;
+      padding: 100px 0;
       border-radius: 0 0 30px 30px;
       overflow: hidden;
       position: relative;
@@ -46,37 +47,43 @@
       z-index: 1;
     }
     .header-bg img {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 4px solid white;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .header-bg img:hover {
+      transform: scale(1.1);
     }
     .header-bg h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
     }
     .header-bg .lead {
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 400;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
     .header-bg .btn-explore {
       background: linear-gradient(135deg, #28a745, #218838);
       border: none;
-      padding: 10px 25px;
-      font-size: 1rem;
+      padding: 12px 30px;
+      font-size: 1.1rem;
       font-weight: 500;
-      border-radius: 25px;
+      border-radius: 30px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .header-bg .btn-explore:hover {
       transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
 
     /* Sections */
@@ -89,10 +96,11 @@
     .btn-download {
       background: linear-gradient(135deg, #28a745, #218838);
       border: none;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .btn-download:hover {
       transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
     .shadow-soft {
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -108,8 +116,65 @@
       color: #0d6efd !important;
     }
 
+    /* Témoignages */
+    .testimonial-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+    }
+    .testimonial-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+
+    /* FAQ */
+    .faq-item {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
     /* Responsive Adjustments */
     @media (max-width: 768px) {
+      .header-bg {
+        padding: 80px 0;
+      }
+      .header-bg h1 {
+        font-size: 2.5rem;
+      }
+      .header-bg .lead {
+        font-size: 1rem;
+      }
+      .header-bg img {
+        width: 100px;
+        height: 100px;
+      }
+      .btn-explore, .btn-download {
+        font-size: 1rem;
+        padding: 10px 25px;
+      }
+      .feature-icon {
+        font-size: 3rem;
+      }
+      h2 {
+        font-size: 1.75rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
       .header-bg {
         padding: 60px 0;
       }
@@ -128,42 +193,13 @@
         padding: 8px 20px;
       }
       .feature-icon {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
       h2 {
         font-size: 1.5rem;
       }
       p {
         font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .header-bg {
-        padding: 40px 0;
-      }
-      .header-bg h1 {
-        font-size: 1.75rem;
-      }
-      .header-bg .lead {
-        font-size: 0.8rem;
-      }
-      .header-bg img {
-        width: 60px;
-        height: 60px;
-      }
-      .btn-explore, .btn-download {
-        font-size: 0.8rem;
-        padding: 6px 15px;
-      }
-      .feature-icon {
-        font-size: 2.5rem;
-      }
-      h2 {
-        font-size: 1.25rem;
-      }
-      p {
-        font-size: 0.8rem;
       }
     }
   </style>
@@ -173,9 +209,9 @@
   <!-- Header -->
   <header class="header-bg text-white text-center">
     <div class="container header-content">
-      <img src="assets/logoCI-NoteManager.png" alt="Logo Centre Informatique" class="mb-4">
+      <img src="assets/logoCI-NoteManager.png" alt="Logo CI-NoteManager" class="mb-4">
       <h1 class="display-4 fw-bold mb-3">CI-NoteManager</h1>
-      <p class="lead mb-4">Une solution moderne pour la gestion des notes des étudiants</p>
+      <p class="lead mb-4">Une solution moderne et intuitive pour la gestion des notes des étudiants</p>
       <a href="#features" class="btn btn-success btn-explore">
         <i class="fas fa-arrow-down me-2"></i> Découvrir
       </a>
@@ -186,8 +222,8 @@
   <section id="features" class="container text-center mt-5">
     <div class="row align-items-center">
       <div class="col-md-6 text-md-start text-center">
-        <h2 class="text-primary fw-bold">Pourquoi choisir notre application ?</h2>
-        <p class="text-muted">Optimisez la gestion des notes avec une interface fluide et des fonctionnalités performantes.</p>
+        <h2 class="text-primary fw-bold mb-4">Pourquoi choisir CI-NoteManager ?</h2>
+        <p class="text-muted mb-4">Optimisez la gestion des notes avec une interface fluide et des fonctionnalités performantes.</p>
         <ul class="list-group list-group-flush mb-4">
           <li class="list-group-item border-0"><i class="fas fa-check-circle text-success me-2 fa-lg fa-fw"></i><strong> Enregistrement rapide</strong> des notes</li>
           <li class="list-group-item border-0"><i class="fas fa-check-circle text-success me-2 fa-lg fa-fw"></i><strong> Relevés automatisés</strong> et précis</li>
@@ -230,9 +266,80 @@
     </div>
   </section>
 
+  <!-- Section Témoignages -->
+  <section class="container mt-5 py-5 text-center">
+    <h2 class="text-primary fw-bold mb-4">Ce que disent nos utilisateurs</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="testimonial-card">
+          <img src="assets/1.jpg" alt="Utilisateur 1" class="img-fluid">
+          <h4 class="fw-bold">Mohamed Diaoune</h4>
+          <p class="text-muted">"CI-NoteManager a simplifié ma gestion des notes. Très intuitif et efficace !"</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="testimonial-card">
+          <img src="assets/2.jpg" alt="Utilisateur 2" class="img-fluid">
+          <h4 class="fw-bold">Amadou Koulibaly</h4>
+          <p class="text-muted">"Une application indispensable pour tout enseignant. Je recommande !"</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="testimonial-card">
+          <img src="assets/4.jpg" alt="Utilisateur 3" class="img-fluid">
+          <h4 class="fw-bold">Hassanatou Diallo</h4>
+          <p class="text-muted">"Les relevés automatisés m'ont fait gagner un temps précieux. Merci !"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section FAQ -->
+  <section class="container mt-5 py-5 text-center">
+    <h2 class="text-primary fw-bold mb-4">FAQ</h2>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="faq-item">
+          <h4 class="fw-bold">Comment télécharger l'application ?</h4>
+          <p class="text-muted">Cliquez sur le bouton "Télécharger l'application" ci-dessus pour obtenir la version Android.</p>
+        </div>
+        <div class="faq-item">
+          <h4 class="fw-bold">L'application est-elle gratuite ?</h4>
+          <p class="text-muted">Oui, CI-NoteManager est entièrement gratuit pour tous les utilisateurs.</p>
+        </div>
+        <div class="faq-item">
+          <h4 class="fw-bold">Puis-je l'utiliser sur iOS ?</h4>
+          <p class="text-muted">Oui, l'application est  disponible sur iOS.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Contact -->
+  <section class="container mt-5 py-5 bg-light rounded shadow-soft text-center">
+    <h2 class="text-primary fw-bold mb-4">Contactez-nous</h2>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Votre nom" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Votre email" required>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="mt-5 py-4 footer-bg text-white text-center rounded-top shadow-soft">
-    <p class="mb-2">&copy; 2025 Centre Informatique. Tous droits réservés.</p>
+    <p class="mb-2">&copy; 2025 CI-NoteManager. Tous droits réservés.</p>
     <div>
       <a href="#" class="text-white mx-3 social-icon"><i class="fab fa-facebook fa-lg"></i></a>
       <a href="#" class="text-white mx-3 social-icon"><i class="fab fa-twitter fa-lg"></i></a>
