@@ -9,42 +9,24 @@
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: #f8f9fa;
+      color: #333;
+      overflow-x: hidden;
     }
 
     /* Header */
     .header-bg {
-      background: linear-gradient(135deg, #0d6efd, #0b5ed7, #0a58ca, #0952be);
-      background-size: 200% 200%;
-      animation: gradientAnimation 10s ease infinite;
+      background: linear-gradient(135deg, #0d6efd, #0b5ed7);
       padding: 100px 0;
-      border-radius: 0 0 30px 30px;
+      text-align: center;
+      position: relative;
       overflow: hidden;
-      position: relative;
-    }
-    @keyframes gradientAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .header-content {
-      position: relative;
-      z-index: 2;
-    }
-    .header-bg::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.1);
-      z-index: 1;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     }
     .header-bg img {
       width: 120px;
@@ -61,18 +43,19 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 3rem;
       font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      color: white;
       margin-top: 20px;
     }
     .header-bg .lead {
       font-size: 1.2rem;
       font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
       max-width: 700px;
       margin: 0 auto;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
     .header-bg .btn-explore {
-      background: linear-gradient(135deg, #28a745, #218838);
+      background: white;
+      color: #0d6efd;
       border: none;
       padding: 12px 30px;
       font-size: 1.1rem;
@@ -87,42 +70,45 @@
     }
 
     /* Sections */
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0d6efd;
+      margin-bottom: 30px;
+      text-align: center;
+    }
     .feature-icon {
+      font-size: 3rem;
+      color: #0d6efd;
+      margin-bottom: 20px;
       transition: transform 0.3s ease;
     }
     .feature-icon:hover {
       transform: scale(1.1);
     }
     .btn-download {
-      background: linear-gradient(135deg, #28a745, #218838);
+      background: #0d6efd;
+      color: white;
       border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .btn-download:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
-    .shadow-soft {
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-    .footer-bg {
-      background: linear-gradient(135deg, #343a40, #212529);
-    }
-    .social-icon {
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    .social-icon:hover {
-      transform: translateY(-5px);
-      color: #0d6efd !important;
-    }
-
-    /* Témoignages */
     .testimonial-card {
       background: white;
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
+      height: 100%; /* Assure que toutes les cartes ont la même hauteur */
     }
     .testimonial-card:hover {
       transform: translateY(-10px);
@@ -133,15 +119,30 @@
       border-radius: 50%;
       margin-bottom: 15px;
     }
-
-
-    /* FAQ */
     .faq-item {
       background: white;
       border-radius: 10px;
       padding: 20px;
       margin-bottom: 15px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    .footer-bg {
+      background: #0d6efd;
+      color: white;
+      padding: 40px 0;
+      clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    }
+    .social-icon {
+      font-size: 1.5rem;
+      color: white;
+      margin: 0 10px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .social-icon:hover {
+      transform: translateY(-5px);
+      color: #f8f9fa !important;
     }
 
     /* Responsive Adjustments */
@@ -163,14 +164,8 @@
         font-size: 1rem;
         padding: 10px 25px;
       }
-      .feature-icon {
-        font-size: 3rem;
-      }
-      h2 {
-        font-size: 1.75rem;
-      }
-      p {
-        font-size: 1rem;
+      .section-title {
+        font-size: 2rem;
       }
     }
 
@@ -192,14 +187,8 @@
         font-size: 0.9rem;
         padding: 8px 20px;
       }
-      .feature-icon {
-        font-size: 2.5rem;
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
-      p {
-        font-size: 0.9rem;
+      .section-title {
+        font-size: 1.75rem;
       }
     }
   </style>
@@ -208,11 +197,11 @@
 
   <!-- Header -->
   <header class="header-bg text-white text-center">
-    <div class="container header-content">
-      <img src="assets/logoCI-NoteManager.png" alt="Logo CI-NoteManager" class="mb-4">
-      <h1 class="display-4 fw-bold mb-3">CI-NoteManager</h1>
+    <div class="container">
+      <img src="assets/logo.jpg" alt="Logo CI-NoteManager" class="mb-4">
+      <h1 class="display-4 fw-bold mb-3">NoteManager</h1>
       <p class="lead mb-4">Une solution moderne et intuitive pour la gestion des notes des étudiants</p>
-      <a href="#features" class="btn btn-success btn-explore">
+      <a href="#features" class="btn btn-explore">
         <i class="fas fa-arrow-down me-2"></i> Découvrir
       </a>
     </div>
@@ -222,7 +211,7 @@
   <section id="features" class="container text-center mt-5">
     <div class="row align-items-center">
       <div class="col-md-6 text-md-start text-center">
-        <h2 class="text-primary fw-bold mb-4">Pourquoi choisir CI-NoteManager ?</h2>
+        <h2 class="section-title">Pourquoi choisir NoteManager ?</h2>
         <p class="text-muted mb-4">Optimisez la gestion des notes avec une interface fluide et des fonctionnalités performantes.</p>
         <ul class="list-group list-group-flush mb-4">
           <li class="list-group-item border-0"><i class="fas fa-check-circle text-success me-2 fa-lg fa-fw"></i><strong> Enregistrement rapide</strong> des notes</li>
@@ -230,7 +219,10 @@
           <li class="list-group-item border-0"><i class="fas fa-check-circle text-success me-2 fa-lg fa-fw"></i><strong> Consultation instantanée</strong> des résultats</li>
           <li class="list-group-item border-0"><i class="fas fa-check-circle text-success me-2 fa-lg fa-fw"></i><strong> Gestion simplifiée</strong> des réclamations</li>
         </ul>
-        <a href="assets/app-mobile.apk" class="btn btn-lg btn-success btn-download shadow-soft px-4 py-2"><i class="fas fa-download me-2"></i> Télécharger l'application</a>
+        <div class="d-flex flex-column flex-md-row gap-3">
+          <a href="assets/app-mobile.apk" class="btn btn-download"><i class="fas fa-download me-2"></i> Télécharger l'application mobile</a>
+          <a href="assets/app-desktop.exe" class="btn btn-download"><i class="fas fa-download me-2"></i> Télécharger l'application desktop</a>
+        </div>
       </div>
       <div class="col-md-6 text-center mt-4 mt-md-0">
         <img src="assets/appercie.jpg" alt="Aperçu de l'application" class="img-fluid rounded shadow-soft" style="max-height: 400px; max-width: 100%; border: 5px solid #0d6efd;">
@@ -239,26 +231,26 @@
   </section>
 
   <!-- Section Fonctionnalités -->
-  <section class="container mt-5 py-5 bg-light rounded shadow-soft text-center">
-    <h2 class="text-primary fw-bold mb-4">Nos Fonctionnalités</h2>
+  <section class="container mt-5 py-5 text-center">
+    <h2 class="section-title">Nos Fonctionnalités</h2>
     <div class="row">
       <div class="col-md-4 mb-4">
         <div class="p-4 bg-white rounded shadow-soft h-100">
-          <i class="fas fa-user-graduate fa-4x text-primary mb-3 feature-icon"></i>
+          <i class="fas fa-user-graduate feature-icon"></i>
           <h4 class="fw-bold">Gestion des étudiants</h4>
           <p class="text-muted">Un suivi détaillé et structuré des étudiants.</p>
         </div>
       </div>
       <div class="col-md-4 mb-4">
         <div class="p-4 bg-white rounded shadow-soft h-100">
-          <i class="fas fa-file-alt fa-4x text-primary mb-3 feature-icon"></i>
+          <i class="fas fa-file-alt feature-icon"></i>
           <h4 class="fw-bold">Suivi des notes</h4>
           <p class="text-muted">Ajoutez et gérez facilement les notes.</p>
         </div>
       </div>
       <div class="col-md-4 mb-4">
         <div class="p-4 bg-white rounded shadow-soft h-100">
-          <i class="fas fa-chart-line fa-4x text-primary mb-3 feature-icon"></i>
+          <i class="fas fa-chart-line feature-icon"></i>
           <h4 class="fw-bold">Analyse des performances</h4>
           <p class="text-muted">Des statistiques précises et utiles.</p>
         </div>
@@ -266,43 +258,53 @@
     </div>
   </section>
 
-  <!-- Section Témoignages -->
+  <!-- Section Notre Équipe -->
   <section class="container mt-5 py-5 text-center">
-    <h2 class="text-primary fw-bold mb-4">Ce que disent nos utilisateurs</h2>
+    <h2 class="section-title">Notre Équipe</h2>
     <div class="row">
-      <div class="col-md-4 mb-4">
+      <!-- Membre 1 -->
+      <div class="col-md-6 mb-4">
         <div class="testimonial-card">
-          <img src="assets/1.jpg" alt="Utilisateur 1" class="img-fluid">
+          <img src="assets/1.jpg" alt="Mohamed Diaoune" class="img-fluid">
           <h4 class="fw-bold">Mohamed Diaoune</h4>
-          <p class="text-muted">"CI-NoteManager a simplifié ma gestion des notes. Très intuitif et efficace !"</p>
+          <p class="text-muted">Développeur Web front-end et designer</p>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
+      <!-- Membre 2 -->
+      <div class="col-md-6 mb-4">
         <div class="testimonial-card">
-          <img src="assets/2.jpg" alt="Utilisateur 2" class="img-fluid">
+          <img src="assets/2.jpg" alt="Amadou Koulibaly" class="img-fluid">
           <h4 class="fw-bold">Amadou Koulibaly</h4>
-          <p class="text-muted">"Une application indispensable pour tout enseignant. Je recommande !"</p>
+          <p class="text-muted">Développeur Web full-stack, Développeur Java, Chef de projet</p>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
+      <!-- Membre 3 -->
+      <div class="col-md-6 mb-4">
         <div class="testimonial-card">
-          <img src="assets/4.jpg" alt="Utilisateur 3" class="img-fluid">
+          <img src="assets/4.jpg" alt="Hassanatou Diallo" class="img-fluid">
           <h4 class="fw-bold">Hassanatou Diallo</h4>
-          <p class="text-muted">"Les relevés automatisés m'ont fait gagner un temps précieux. Merci !"</p>
+          <p class="text-muted">Développeuse Web front-end et spécialiste en analyse de base de données Oracle</p>
+        </div>
+      </div>
+      <!-- Membre 4 -->
+      <div class="col-md-6 mb-4">
+        <div class="testimonial-card">
+          <img src="assets/4.jpg" alt="Rassidatou Diallo" class="img-fluid">
+          <h4 class="fw-bold">Rassidatou Diallo</h4>
+          <p class="text-muted">Développeuse Web front-end</p>
         </div>
       </div>
     </div>
   </section>
 
-
   <!-- Section FAQ -->
   <section class="container mt-5 py-5 text-center">
-    <h2 class="text-primary fw-bold mb-4">FAQ</h2>
+    <h2 class="section-title">FAQ</h2>
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="faq-item">
           <h4 class="fw-bold">Comment télécharger l'application ?</h4>
-          <p class="text-muted">Cliquez sur le bouton "Télécharger l'application" ci-dessus pour obtenir la version Android.</p>
+          <p class="text-muted">Cliquez sur le bouton "Télécharger l'application" ci-dessus pour obtenir la version Android ou desktop.</p>
         </div>
         <div class="faq-item">
           <h4 class="fw-bold">L'application est-elle gratuite ?</h4>
@@ -310,7 +312,7 @@
         </div>
         <div class="faq-item">
           <h4 class="fw-bold">Puis-je l'utiliser sur iOS ?</h4>
-          <p class="text-muted">Oui, l'application est  disponible sur iOS.</p>
+          <p class="text-muted">Oui, l'application est disponible sur iOS.</p>
         </div>
       </div>
     </div>
@@ -318,7 +320,7 @@
 
   <!-- Section Contact -->
   <section class="container mt-5 py-5 bg-light rounded shadow-soft text-center">
-    <h2 class="text-primary fw-bold mb-4">Contactez-nous</h2>
+    <h2 class="section-title">Contactez-nous</h2>
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <form>
@@ -341,9 +343,9 @@
   <footer class="mt-5 py-4 footer-bg text-white text-center rounded-top shadow-soft">
     <p class="mb-2">&copy; 2025 CI-NoteManager. Tous droits réservés.</p>
     <div>
-      <a href="#" class="text-white mx-3 social-icon"><i class="fab fa-facebook fa-lg"></i></a>
-      <a href="#" class="text-white mx-3 social-icon"><i class="fab fa-twitter fa-lg"></i></a>
-      <a href="#" class="text-white mx-3 social-icon"><i class="fab fa-linkedin fa-lg"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
     </div>
   </footer>
 
